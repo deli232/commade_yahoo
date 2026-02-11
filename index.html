@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bon de commande</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.width = Math.random() * 60 + 20 + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            document.body.appendChild(particle);
+        }
+    </script>
+
+    <div class="container">
+        <h1>📋 Bon de commande</h1>
+        
+        <form id="commandeForm">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>DATE <span class="required">*</span></label>
+                    <input type="date" id="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label>EMAIL <span class="required">*</span></label>
+                    <input type="email" id="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>MOT DE PASSE <span class="required">*</span></label>
+                    <input type="password" id="password" required>
+                </div>
+
+                <div class="form-group">
+                    <label>LABO <span class="required">*</span></label>
+                    <select id="labo" required>
+                        <option value="">Choisir...</option>
+                        <option>LABO PRINCE IMAGE</option>
+                        <option>LABO SAFARI</option>
+                        <option>LABO SHELL</option>
+                        <option>LABO TSINGA</option>
+                        <option>LABO YAHOO</option>
+                        <option>LABO MBALLA 2</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>PRODUIT <span class="required">*</span></label>
+                    <select id="produit" required>
+                        <option value="">Choisir...</option>
+                        <option>Fuji 127 glossy</option>
+                        <option>Fuji 152 glossy</option>
+                        <option>Fuji 152 lustre</option>
+                        <option>Mitsubishi 152 lustre</option>
+                        <option>Pack</option>
+                        <option>Papier canon</option>
+                        <option>Kodak 152 glossy</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>QUANTITÉ <span class="required">*</span></label>
+                    <input type="number" id="quantite" min="1" required>
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <button type="button" class="add-btn" onclick="addToCart()">
+                    ➕ Ajouter
+                </button>
+            </div>
+        </form>
+
+        <div class="cart-section" id="cartSection" style="display: none;">
+            <div class="cart-header">
+                <div class="cart-title">
+                    🛒 Panier <span class="cart-count" id="cartCount">0</span>
+                </div>
+                <button class="clear-cart" onclick="clearCart()">🗑️ Vider</button>
+            </div>
+            <div class="cart-items" id="cartItems"></div>
+            
+            <div class="btn-group">
+                <button type="button" class="submit-btn" onclick="submitAllOrders()">
+                    Soumettre →
+                </button>
+            </div>
+        </div>
+
+        <div id="message" class="message"></div>
+        <div id="orderNumber" style="display: none;"></div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
