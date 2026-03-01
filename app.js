@@ -123,7 +123,7 @@ function showOrderNumber(orderNum) {
         </div>
     `;
     orderDiv.style.display = 'block';
-    setTimeout(() => orderDiv.style.display = 'none', 15000);
+    setTimeout(() => orderDiv.style.display = 'none', 30000);
 }
 
 // Afficher un message
